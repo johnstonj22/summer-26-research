@@ -1,0 +1,69 @@
+#!/bin/bash
+#----------------------------------------------------------------------------------------------------#
+#   ArcaNN: Automatic training of Reactive Chemical Architecture with Neural Networks                #
+#   Copyright 2022-2024 ArcaNN developers group <https://github.com/arcann-chem>                     #
+#                                                                                                    #
+#   SPDX-License-Identifier: AGPL-3.0-only                                                           #
+#----------------------------------------------------------------------------------------------------#
+# Created: 2022/01/01
+# Last modified: 2024/05/15
+#----------------------------------------------
+# You must keep the _R_VARIABLES_ in the file.
+# You must keep the name file as job_deepmd_compress_ARCHTYPE_myHPCkeyword.sh.
+#----------------------------------------------
+# Project/Account
+#SBATCH --partition=sixhour
+#SBATCH -C nvidia
+#SBATCH --cpus-per-task=4
+#SBATCH --nodes 1
+#SBATCH --hint=nomultithread
+#SBATCH --gres=gpu:1
+# Walltime
+#SBATCH -t 6:00:00
+# Merge Output/Error
+#SBATCH -o DeepMD_Compress.%j
+#SBATCH -e DeepMD_Compress.%j
+# Name of job
+#SBATCH -J DeepMD_Compress
+#SBATCH --mem=64G
+#
+
+
+#----------------------------------------------
+# Files / Variables - They should not be changed
+#----------------------------------------------
+
+DeepMD_MODEL_VERSION="3.0"
+DeepMD_MODEL_FILE="graph_3_001.pb"
+DeepMD_COMPRESSED_MODEL_FILE="graph_3_001_compressed.pb"
+DeepMD_LOG_FILE="graph_3_001_compress.log"
+DeepMD_OUT_FILE="graph_3_001_compress.out"
+
+#----------------------------------------------
+# Adapt the following lines to your HPC system
+#----------------------------------------------
+
+# Go where the job has been launched
+cd "${SLURM_SUBMIT_DIR}" || { echo "Could not go to ${SLURM_SUBMIT_DIR}. Aborting..."; exit 1; }
+
+# Check
+[ -f ${DeepMD_MODEL_FILE} ] || { echo "${DeepMD_MODEL_FILE} does not exist. Aborting..."; exit 1; }
+
+module purge
+module load conda/latest
+
+source /kuhpc/sw/conda/latest/etc/profile.d/conda.sh
+conda activate /kuhpc/work/thompson/j281j388/.conda/envs/deepmd-kit-3.0
+export PATH="${CONDA_PREFIX}/bin:${PATH}"
+
+NVIDIA_LIBS=$(find "${CONDA_PREFIX}/lib/python3.12/site-packages/nvidia" -maxdepth 2 -type d -name lib 2>/dev/null | tr '\n' ':')
+export LD_LIBRARY_PATH="${NVIDIA_LIBS}${CONDA_PREFIX}/lib:${LD_LIBRARY_PATH}"
+export DP_INFER_BATCH_SIZE=8192
+
+# Run the DeepMD compress
+echo "# [$(date)] Running DeepMD compress..."
+dp compress -i ${DeepMD_MODEL_FILE} -o ${DeepMD_COMPRESSED_MODEL_FILE} --log-path ${DeepMD_LOG_FILE} > ${DeepMD_OUT_FILE} 2>&1
+echo "# [$(date)] DeepMD compress finished."
+
+sleep 2
+exit

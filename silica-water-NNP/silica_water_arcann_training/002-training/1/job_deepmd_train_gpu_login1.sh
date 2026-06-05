@@ -1,0 +1,79 @@
+#!/bin/bash
+#----------------------------------------------------------------------------------------------------#
+#   ArcaNN: Automatic training of Reactive Chemical Architecture with Neural Networks                #
+#   Copyright 2022-2024 ArcaNN developers group <https://github.com/arcann-chem>                     #
+#                                                                                                    #
+#   SPDX-License-Identifier: AGPL-3.0-only                                                           #
+#----------------------------------------------------------------------------------------------------#
+# Created: 2022/01/01
+# Last modified: 2024/05/15
+#----------------------------------------------
+# You must keep the _R_VARIABLES_ in the file.
+# You must keep the name file as job_deepmd_train_ARCHTYPE_myHPCkeyword.sh.
+#----------------------------------------------
+# QoS/Partition/SubPartition
+#SBATCH --partition=sixhour
+#SBATCH -C nvidia&double&ib
+# Number of Nodes/MPIperNodes/OpenMPperMPI/GPU
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 1
+#SBATCH --cpus-per-task 10
+#SBATCH --hint=nomultithread
+#SBATCH --gres=gpu:1
+# Walltime
+#SBATCH -t 6:00:00
+# Merge Output/Error
+#SBATCH -o DeepMD_Train.%j
+#SBATCH -e DeepMD_Train.%j
+# Name of job
+#SBATCH -J DeepMD_Train
+#SBATCH --mem=150G
+#
+
+#----------------------------------------------
+# Files / Variables - They should not be changed
+#----------------------------------------------
+
+DeepMD_MODEL_VERSION="3.0"
+DeepMD_IN_FILE="training.json"
+DeepMD_LOG_FILE="training.log"
+DeepMD_OUT_FILE="training.out"
+DeepMD_DATA_DIR="../data"
+
+#----------------------------------------------
+# Adapt the following lines to your HPC system
+#----------------------------------------------
+
+# Go where the job has been launched
+cd "${SLURM_SUBMIT_DIR}" || { echo "Could not go to ${SLURM_SUBMIT_DIR}. Aborting..."; exit 1; }
+
+# Check
+[ -f "${DeepMD_IN_FILE}" ] || { echo "${DeepMD_IN_FILE} does not exist. Aborting..."; exit 1; }
+
+# This part copy the data from the DeepMD_DATA_DIR to the job folder (because they are one up and they should be in the same folder)
+[ -d ${DeepMD_DATA_DIR} ] || { echo "${DeepMD_DATA_DIR} does not exist. Aborting..."; exit 1; }
+mkdir -p "${SLURM_SUBMIT_DIR}"/data || { echo "Could not create ${SLURM_SUBMIT_DIR}/data. Aborting..."; exit 1; }
+{ cp -r ${DeepMD_DATA_DIR}/* "${SLURM_SUBMIT_DIR}"/data && echo "${DeepMD_DATA_DIR} copied successfully"; } || { echo "Could not copy ${DeepMD_DATA_DIR}. Aborting..."; exit 1; }
+
+module purge
+module load conda/latest
+
+source /kuhpc/sw/conda/latest/etc/profile.d/conda.sh
+conda activate /kuhpc/work/thompson/j281j388/.conda/envs/deepmd-kit-3.0
+export PATH="${CONDA_PREFIX}/bin:${PATH}"
+
+NVIDIA_LIBS=$(find "${CONDA_PREFIX}/lib/python3.12/site-packages/nvidia" -maxdepth 2 -type d -name lib 2>/dev/null | tr '\n' ':')
+export LD_LIBRARY_PATH="${NVIDIA_LIBS}${CONDA_PREFIX}/lib:${LD_LIBRARY_PATH}"
+export DP_INFER_BATCH_SIZE=8192
+
+# Run the DeepMD train
+echo "# [$(date)] Running DeepMD train..."
+dp train ${DeepMD_IN_FILE} --log-path ${DeepMD_LOG_FILE} > ${DeepMD_OUT_FILE} 2>&1
+echo "# [$(date)] DeepMD train finished."
+
+# This are useless files, so we remove them
+if [ -f out.json ]; then rm out.json; fi
+if [ -f input_v2_compat.json ]; then rm input_v2_compat.json; fi
+
+sleep 2
+exit

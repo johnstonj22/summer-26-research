@@ -1,0 +1,206 @@
+[
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000001",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000002",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000003",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000004",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000005",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000006",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000007",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000008",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000009",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000010",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000011",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000012",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000013",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000014",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000015",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000016",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000017",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000018",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000019",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000020",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000021",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000022",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000023",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000024",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000025",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000026",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000027",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000028",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000029",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000030",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000031",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000032",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000033",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000034",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000035",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000036",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000037",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000038",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000039",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000040",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/candidates_001_silica_water.xyz:frame_000041",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/1/00001/silica_water.lmp",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/1/00002/silica_water.lmp",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/1/00003/silica_water.lmp",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/2/00001/silica_water.lmp",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/2/00002/silica_water.lmp",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/2/00003/silica_water.lmp",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/3/00001/silica_water.lmp",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/3/00002/silica_water.lmp",
+    "pass": true
+  },
+  {
+    "candidate": "001-exploration/silica_water/3/00003/silica_water.lmp",
+    "pass": true
+  }
+]

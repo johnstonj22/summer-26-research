@@ -1,0 +1,10 @@
+PATH/_R_DEEPMD_VERSION_/_R_MODEL_FILES_/_R_LAMMPS_IN_FILE_/_R_DATA_FILE_/_R_RERUN_FILE_/_R_PLUMED_FILES_/
+silica_water_1_00001/3.0/graph_1_000_compressed.pb" "graph_2_000_compressed.pb" "graph_3_000_compressed.pb/silica_water_1_001.in/silica_water.lmp///
+silica_water_1_00002/3.0/graph_1_000_compressed.pb" "graph_2_000_compressed.pb" "graph_3_000_compressed.pb/silica_water_1_001.in/silica_water.lmp///
+silica_water_1_00003/3.0/graph_1_000_compressed.pb" "graph_2_000_compressed.pb" "graph_3_000_compressed.pb/silica_water_1_001.in/silica_water.lmp///
+silica_water_2_00001/3.0/graph_2_000_compressed.pb" "graph_3_000_compressed.pb" "graph_1_000_compressed.pb/silica_water_2_001.in/silica_water.lmp///
+silica_water_2_00002/3.0/graph_2_000_compressed.pb" "graph_3_000_compressed.pb" "graph_1_000_compressed.pb/silica_water_2_001.in/silica_water.lmp///
+silica_water_2_00003/3.0/graph_2_000_compressed.pb" "graph_3_000_compressed.pb" "graph_1_000_compressed.pb/silica_water_2_001.in/silica_water.lmp///
+silica_water_3_00001/3.0/graph_3_000_compressed.pb" "graph_1_000_compressed.pb" "graph_2_000_compressed.pb/silica_water_3_001.in/silica_water.lmp///
+silica_water_3_00002/3.0/graph_3_000_compressed.pb" "graph_1_000_compressed.pb" "graph_2_000_compressed.pb/silica_water_3_001.in/silica_water.lmp///
+silica_water_3_00003/3.0/graph_3_000_compressed.pb" "graph_1_000_compressed.pb" "graph_2_000_compressed.pb/silica_water_3_001.in/silica_water.lmp///

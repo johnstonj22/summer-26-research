@@ -14,12 +14,34 @@ Thumbs.db
 *.wfn
 *.wfn.bak-*
 *.restart
+*.restart.bak-*
+*.bak-*
+*.bak
+*.bak_*
 *.out
+*.OUT
 *.err
+*.ERR
 *.log
+*.Log
+*.LOG
+**/logs/*
+!**/logs/.gitkeep
 *.ener
 *.for
 *-pos-*.xyz
+forces.out-*.xyz
+candidates_*.xyz
+model_devi*.png
+loss_plots*.png
+energy_vs_step*.png
+energy_vs_step*.pdf
+*.done
+CP2K.[0-9]*
+DeepMD_*.[0-9]*
+LAMMPS_*.[0-9]*
+skip
+temp
 
 # DeepMD / model/data outputs
 *.pb
@@ -34,13 +56,6 @@ checkpoint
 # Trajectory and large structure outputs
 *.dcd
 
-# ArcaNN generated workflow data/results
-**/[0-9][0-9][0-9]-*/
-**/NNP/
-**/data/
-**/old_data/
-**/control/
-
-# Top-level datasets/results synced from cluster, not versioned
-inital_datateset/
-initial_dataset/
+# Large generated contents are excluded by file type above, but directories are
+# intentionally not ignored so lightweight scripts, inputs, and placeholders can
+# appear in the remote repository.

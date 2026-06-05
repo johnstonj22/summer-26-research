@@ -1,0 +1,9 @@
+{
+  "vmd_path": "/kuhpc/sw/vmd/1.9.4/bin/vmd",
+  "traj_count": [3],
+  "print_interval_mult": [0.001],
+  "sigma_low": [0.2],
+  "sigma_high": [0.8],
+  "sigma_high_limit": [1.0],
+  "ignore_first_x_ps": [0]
+}

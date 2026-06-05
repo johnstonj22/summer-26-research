@@ -1,0 +1,50 @@
+{
+  "nearest": {
+    "H-O": {
+      "low": 0.7832294958557674,
+      "high": 1.2606775385798785,
+      "reference_low_percentile": 0.9332294958557674,
+      "reference_high_percentile": 1.1106775385798786,
+      "samples": 500448
+    },
+    "Si-O": {
+      "low": 1.4077416940647278,
+      "high": 1.8403627127147177,
+      "reference_low_percentile": 1.5577416940647277,
+      "reference_high_percentile": 1.6903627127147178,
+      "samples": 96240
+    }
+  },
+  "contact_min": {
+    "H-H": {
+      "low": 1.1393415934374946,
+      "reference_low_percentile": 1.3393415934374946,
+      "samples": 1203
+    },
+    "O-H": {
+      "low": 0.7092503241244357,
+      "reference_low_percentile": 0.9092503241244357,
+      "samples": 1203
+    },
+    "O-O": {
+      "low": 2.0920174440239845,
+      "reference_low_percentile": 2.2920174440239847,
+      "samples": 1203
+    },
+    "Si-H": {
+      "low": 1.8142051096019898,
+      "reference_low_percentile": 2.0142051096019897,
+      "samples": 1203
+    },
+    "Si-O": {
+      "low": 1.3372824164983799,
+      "reference_low_percentile": 1.5372824164983798,
+      "samples": 1203
+    },
+    "Si-Si": {
+      "low": 2.5591719810207376,
+      "reference_low_percentile": 2.759171981020738,
+      "samples": 1203
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+    "atomsk_path": "/kuhpc/work/thompson/j281j388/arcann_env/bin/atomsk",
+    "user_machine_keyword_exp": "sixhour_gpu_queue",
+    "deepmd_model_version": 3.0,
+    "nnp_count": 3,
+    "systems_auto": {
+        "silica_water": {
+            "nb_steps": 25000,
+            "print_every_x_steps": 25,
+            "nb_atm": 864,
+            "exploration_type": "lammps",
+            "traj_count": 20,
+            "temperature_K": 300.0,
+            "timestep_ps": 0.0001,
+            "previous_start": true,
+            "disturbed_start": false,
+            "print_interval_mult": 0.001,
+            "max_exp_time_ps": 400,
+            "completed_count": 60,
+            "forced_count": 0,
+            "skipped_count": 0,
+            "mean_s_per_step": 0.015072711999999999,
+            "median_s_per_step": 0.01126804,
+            "stdeviation_s_per_step": 0.006805072314759728
+        }
+    },
+    "is_locked": true,
+    "is_launched": true,
+    "is_checked": true,
+    "is_deviated": false,
+    "is_extracted": false,
+    "nb_sim": 60,
+    "vmd_path": "/kuhpc/sw/vmd/1.9.4/bin/vmd"
+}

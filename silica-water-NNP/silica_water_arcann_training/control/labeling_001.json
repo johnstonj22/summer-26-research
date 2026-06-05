@@ -1,0 +1,24 @@
+{
+    "labeling_program": "cp2k",
+    "user_machine_keyword_label": "sixhour_cpu_queue",
+    "systems_auto": {
+        "silica_water": {
+            "walltime_first_job_h": 0.5,
+            "walltime_second_job_h": 1.0,
+            "nb_nodes": 1,
+            "nb_mpi_per_node": 10,
+            "nb_threads_per_mpi": 1,
+            "candidates_count": 42,
+            "disturbed_candidates_count": 0,
+            "timings_s": [865.9876666666668, 45.302095238095234],
+            "candidates_skipped_count": 0,
+            "disturbed_candidates_skipped_count": 0
+        }
+    },
+    "total_to_label": 42,
+    "launch_all_jobs": true,
+    "is_locked": true,
+    "is_launched": true,
+    "is_checked": true,
+    "is_extracted": true
+}

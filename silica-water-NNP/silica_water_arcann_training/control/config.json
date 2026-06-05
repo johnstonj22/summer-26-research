@@ -1,0 +1,28 @@
+{
+    "systems_auto": {
+        "silica_water": {
+            "index": 0,
+            "cell": [20.251, 14.32, 35.707675],
+            "nb_atm": 864
+        }
+    },
+    "nnp_count": 3,
+    "current_iteration": 3,
+    "properties": {
+        "1": {
+            "symbol": "Si",
+            "mass": 28.085
+        },
+        "2": {
+            "symbol": "O",
+            "mass": 15.999
+        },
+        "3": {
+            "symbol": "H",
+            "mass": 1.008
+        }
+    },
+    "initial_datasets": ["init_silica_water"],
+    "type_map": ["Si", "O", "H"],
+    "systems_adhoc": []
+}

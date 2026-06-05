@@ -1,0 +1,2 @@
+/kuhpc/scratch/thompson/j281j388/summer_26/silica-water-NNP/silica_water_arcann_training/001-exploration/silica_water/1/00001
+/kuhpc/scratch/thompson/j281j388/summer_26/silica-water-NNP/silica_water_arcann_training/001-exploration/silica_water/2/00001

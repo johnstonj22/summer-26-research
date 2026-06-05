@@ -1,0 +1,44 @@
+units metal
+boundary p p p
+atom_style atomic
+
+neighbor 2.0 bin
+neigh_modify every 1 delay 0 check no
+
+read_data 001_silica_water_1_00002_00002.lmp
+
+pair_style deepmd graph_2_001_compressed.pb graph_3_001_compressed.pb graph_1_001_compressed.pb out_freq 25 out_file model_devi_silica_water_2_002.out
+pair_coeff * *
+
+timestep 0.0001
+
+dump dcd all dcd 25 silica_water_2_002.dcd
+
+thermo_style custom step time etotal ke pe temp press vol density cella cellb cellc cpuremain
+thermo_modify flush yes
+thermo 25
+
+#group frame type 1 4
+#group silanols type 2 3
+#group mobile type 2 3 5 6
+#group water type 5 6
+group rigid id 119 138 139 107 131
+
+velocity all create 300.0 282415002 dist gaussian
+
+fix 1 rigid setforce 0.0 0.0 0.0
+fix 2 all nve
+fix 3 all temp/csvr 300.0 300.0 $(100.0*dt) 29915002
+fix 4 all momentum 1 linear 1 1 1
+
+variable v_xlo equal xlo
+variable v_xhi equal xhi
+variable v_ylo equal ylo
+variable v_yhi equal yhi
+variable v_zlo equal zlo
+variable v_zhi equal zhi
+fix extra all print 25 "${v_xlo} ${v_xhi} ${v_ylo} ${v_yhi} ${v_zlo} ${v_zhi}" file cell.txt
+
+run 25000
+
+write_restart silica_water_2_002.restart

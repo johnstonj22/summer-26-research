@@ -1,0 +1,153 @@
+&GLOBAL
+  PROJECT    silica
+  IOLEVEL    Medium
+  RUN_TYPE   MD
+  PREFERRED_DIAG_LIBRARY ScaLAPACK
+  !21000 seconds
+  WALLTIME=21000
+&END GLOBAL
+
+&EXT_RESTART
+  RESTART_FILE_NAME silica-1.restart
+&END EXT_RESTART
+
+&FORCE_EVAL
+  METHOD QS
+  &PRINT
+    &PROGRAM_RUN_INFO
+      FILENAME=./energy.out
+      &EACH 
+        MD 20
+      &END
+    &END PROGRAM_RUN_INFO
+    &FORCES
+      FILENAME=./forces.out
+      &EACH
+        MD 20
+      &END
+    &END FORCES
+  &END PRINT
+
+  &DFT
+    ! Charge and multiplicity, use LSD for non-neutral system
+    CHARGE         0
+    LSD
+    MULTIPLICITY   1
+
+    ! basis sets and pseudopotential files can be found in cp2k/data
+    BASIS_SET_FILE_NAME   GTH_BASIS_SETS
+    POTENTIAL_FILE_NAME   GTH_POTENTIALS
+    WFN_RESTART_FILE_NAME silica-RESTART.wfn
+
+    SORT_BASIS EXP
+
+    &QS
+      METHOD GPW 
+      EPS_DEFAULT 1.0E-10
+      EXTRAPOLATION ASPC
+    &END 
+
+    &MGRID
+       CUTOFF 400
+       REL_CUTOFF 50
+       NGRIDS 5
+    &END
+
+    &POISSON
+       PERIODIC     XYZ 
+    &END
+
+    &SCF                              
+      SCF_GUESS  RESTART
+      MAX_SCF    1000
+      EPS_SCF    1.0E-6
+      &OT
+        PRECONDITIONER  FULL_SINGLE_INVERSE
+        MINIMIZER       DIIS
+	      N_HISTORY_VEC	7
+      &END OT
+    &END SCF
+
+    &XC
+      &XC_FUNCTIONAL
+        &PBE
+        &END PBE
+      &END XC_FUNCTIONAL
+    &END XC
+
+  &END DFT
+ 
+  &SUBSYS
+    &CELL 
+      ABC [angstrom] 20.251 14.32 35.707675
+    &END CELL
+
+    &TOPOLOGY
+      COORD_FILE_NAME slab_wrappedtoo2.xyz
+      COORD_FILE_FORMAT XYZ
+    &END
+
+    &KIND SI
+      BASIS_SET           DZVP-GTH
+      POTENTIAL           GTH-PBE-q4
+    &END KIND
+    &KIND H
+      BASIS_SET           DZVP-GTH
+      POTENTIAL           GTH-PBE-q1
+    &END KIND
+    &KIND O
+      BASIS_SET           DZVP-GTH
+      POTENTIAL           GTH-PBE-q6
+    &END KIND
+
+  &END SUBSYS
+
+&END FORCE_EVAL
+
+&MOTION
+  &CONSTRAINT
+    &FIXED_ATOMS
+      COMPONENTS_TO_FIX XYZ
+      !change
+      LIST 119 138 139 107 131
+    &END FIXED_ATOMS
+  &END CONSTRAINT
+  &MD
+    ENSEMBLE NVT
+    TEMPERATURE 298
+    TIMESTEP 0.5
+    STEPS 10000
+    &THERMOSTAT
+      REGION GLOBAL
+      TYPE NOSE
+      &NOSE
+        LENGTH 3
+        TIMECON 100
+      &END NOSE
+    &END THERMOSTAT
+    &PRINT
+      &PROGRAM_RUN_INFO
+        &EACH
+          MD 20
+        &END
+      &END PROGRAM_RUN_INFO
+    &END PRINT
+  &END MD
+  &PRINT
+    &TRAJECTORY
+      &EACH
+        MD 1
+      &END
+    &END TRAJECTORY
+    &VELOCITIES OFF
+    &END VELOCITIES
+    &FORCES OFF
+    &END FORCES
+    &RESTART
+      &EACH
+        MD 20
+      &END
+    &END RESTART
+  &END PRINT
+&END MOTION
+

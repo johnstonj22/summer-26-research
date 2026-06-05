@@ -1,0 +1,17 @@
+{
+    "sigma_low": 0.2,
+    "sigma_high": 0.8,
+    "sigma_high_limit": 1.0,
+    "total_count": 1001,
+    "mean_deviation_max_f": 0.466399925,
+    "median_deviation_max_f": 0.48125375000000004,
+    "stdeviation_deviation_max_f": 0.2784242014698783,
+    "good_count": 2,
+    "rejected_count": 994,
+    "candidates_count": 5,
+    "selection_factor": 1,
+    "max_candidates_local": -1,
+    "selected_count": 5,
+    "discarded_count": 0,
+    "minimum_index": 60
+}
