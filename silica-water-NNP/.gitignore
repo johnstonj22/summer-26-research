@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+
+arcann_training.egg-info/
+build/
+
+silica_water_arcann_training/user_files/silica_water.pdb

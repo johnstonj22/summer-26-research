@@ -1,0 +1,46 @@
+AGENTS.md
+
+# Python/cache/build artifacts
+__pycache__/
+*.py[cod]
+build/
+*.egg-info/
+
+# Local/editor/system files
+.DS_Store
+Thumbs.db
+
+# CP2K / simulation outputs
+*.wfn
+*.wfn.bak-*
+*.restart
+*.out
+*.err
+*.log
+*.ener
+*.for
+*-pos-*.xyz
+
+# DeepMD / model/data outputs
+*.pb
+*.raw
+*.npy
+*.npz
+*.data-*
+*.index
+*.meta
+checkpoint
+
+# Trajectory and large structure outputs
+*.dcd
+
+# ArcaNN generated workflow data/results
+**/[0-9][0-9][0-9]-*/
+**/NNP/
+**/data/
+**/old_data/
+**/control/
+
+# Top-level datasets/results synced from cluster, not versioned
+inital_datateset/
+initial_dataset/
