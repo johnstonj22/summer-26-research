@@ -32,6 +32,7 @@ Thumbs.db
 *-pos-*.xyz
 forces.out-*.xyz
 candidates_*.xyz
+*candidate_distance_report*
 model_devi*.png
 loss_plots*.png
 energy_vs_step*.png
